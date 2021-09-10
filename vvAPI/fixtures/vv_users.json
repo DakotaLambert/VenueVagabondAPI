@@ -1,0 +1,10 @@
+[
+    {
+        "model": "vvAPI.vvuser",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "state": 21
+        }
+    }
+]

@@ -1,0 +1,20 @@
+[
+	{
+		"model": "auth.user",
+        "pk": 1,
+        "fields": {
+            "password": "pbkdf2_sha256$260000$TFgPoRPy6LrKKPRfkhsoxK$ywKhfJuqf7i6uHWmmEHKth/1FQQF+TFKo/LcOWGCo2M=",
+            "last_login": null,
+            "is_superuser": true,
+            "username": "dakota@nss.com",
+            "first_name": "dakota",
+            "last_name": "lambert",
+            "email": "dakota@nss.com",
+            "is_staff": true,
+            "is_active": true,
+            "date_joined": "2020-08-28T14:51:39.989Z",
+            "groups": [],
+            "user_permissions": []
+        }
+	}
+]

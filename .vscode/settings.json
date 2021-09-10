@@ -1,0 +1,21 @@
+{
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": [
+        "--load-plugins=pylint_django",
+        "--django-settings-module=VenueVagabond.settings",
+    ],
+    "sqltools.connections": [
+        {
+            "previewLimit": 100,
+            "driver": "SQLite",
+            "name": "VV",
+            "database": "db.sqlite3"
+        }
+    ],
+    "cSpell.ignoreWords": [
+        "Rfkhsox",
+        "authtoken",
+        "cigdxa",
+        "vvuser"
+    ],
+}
