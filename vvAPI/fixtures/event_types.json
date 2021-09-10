@@ -1,0 +1,9 @@
+[
+	{
+		"model": "vvAPI.eventtype",
+		"pk": 1,
+		"fields": {
+			"label": "Concert"
+		}
+	}
+]

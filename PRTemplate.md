@@ -19,4 +19,6 @@
 
 5. View code file.
    > Confirm file modifications are present as indicated above.
+
    > Confirm no unused code or extraneous comments exist.
+

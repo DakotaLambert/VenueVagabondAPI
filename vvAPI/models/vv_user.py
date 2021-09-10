@@ -10,3 +10,4 @@ class VVUser(models.Model):
     """
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     state = models.ForeignKey('State', on_delete=DO_NOTHING)
+    image_url = models.ImageField(upload_to="image", height_field=None, width_field=None, max_length=None, null=True)

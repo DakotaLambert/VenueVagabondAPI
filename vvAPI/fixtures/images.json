@@ -1,0 +1,11 @@
+[
+    {
+        "model":"vvAPI.image",
+        "pk":1,
+        "fields": {
+            "user":1,
+            "event":1,
+            "image_path":"ADTR_TGD_TDWP.png"
+        }
+    }
+]
