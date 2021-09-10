@@ -1,0 +1,22 @@
+[
+    {
+        "model": "vvAPI.event",
+        "pk": 1,
+        "fields": {
+            "name": "A Day To Remember, The Ghost Inside, The Devil Wears Prada",
+            "event_type": 1,
+            "venue": 3,
+            "date_of_event": "2021-09-10"
+        }
+    },
+    {
+        "model": "vvAPI.event",
+        "pk": 2,
+        "fields": {
+            "name": "My Chemical Romance",
+            "event_type": 1,
+            "venue": 4,
+            "date_of_event": "2022-09-24"
+        }
+    }
+]
