@@ -14,3 +14,4 @@ class State(models.Model):
     def state_venues(self):
         venue = Venue.objects.filter(state=self)
         return venue
+    
