@@ -4,4 +4,4 @@ from .venue import Venue
 from .user_events import UserEvent
 from .event import Event
 from .event_type import EventType
-from .image import Image
+from .event_image import EventImage

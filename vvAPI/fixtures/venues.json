@@ -1,34 +1,47 @@
 [
-    {
+	{
 		"model": "vvAPI.venue",
 		"pk": 1,
 		"fields": {
+			"user": 1,
 			"name": "Manchester Music Hall",
-            "state": 21
+			"state": 21
 		}
 	},
-    {
+	{
 		"model": "vvAPI.venue",
 		"pk": 2,
 		"fields": {
+			"user": 1,
 			"name": "The Exit/In",
-            "state": 50
+			"state": 50
 		}
 	},
-    {
+	{
 		"model": "vvAPI.venue",
 		"pk": 3,
 		"fields": {
+			"user": 1,
 			"name": "PromoWest Pavilion at OVATION ",
-            "state": 21
+			"state": 21
 		}
 	},
-    {
+	{
 		"model": "vvAPI.venue",
 		"pk": 4,
 		"fields": {
+			"user": 1,
 			"name": "BB&T Center",
-            "state": 12
+			"state": 12
+		}
+	},
+	{
+		"model": "vvAPI.venue",
+		"pk": 5,
+		"fields": {
+			"user": 1,
+			"name": "Bogarts",
+			"state": 41
 		}
 	}
 ]

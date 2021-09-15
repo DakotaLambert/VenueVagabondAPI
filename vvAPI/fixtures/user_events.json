@@ -1,0 +1,10 @@
+[
+    {
+        "model": "vvAPI.userevent",
+        "pk":1,
+        "fields":{
+            "user":1,
+            "event":1
+        }
+    }
+]

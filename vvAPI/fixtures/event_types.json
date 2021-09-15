@@ -3,6 +3,7 @@
 		"model": "vvAPI.eventtype",
 		"pk": 1,
 		"fields": {
+            "user": 1,
 			"label": "Concert"
 		}
 	}

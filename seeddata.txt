@@ -1,0 +1,5 @@
+rm -rf vvAPI/migrations
+rm db.sqlite3
+python manage.py makemigrations vvAPI
+python manage.py migrate
+python manage.py loaddata users tokens vv_users states event_images venues event_types events user_events
