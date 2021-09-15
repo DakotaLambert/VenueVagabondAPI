@@ -17,10 +17,14 @@
         "authtoken",
         "branchname",
         "cigdxa",
+        "imgstr",
+        "userevent",
         "vvuser"
     ],
     "cSpell.words": [
         "ADTR",
+        "eventimage",
+        "eventtype",
         "TDWP"
     ],
 }

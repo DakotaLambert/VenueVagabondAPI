@@ -6,7 +6,7 @@
             "password": "pbkdf2_sha256$260000$TFgPoRPy6LrKKPRfkhsoxK$ywKhfJuqf7i6uHWmmEHKth/1FQQF+TFKo/LcOWGCo2M=",
             "last_login": null,
             "is_superuser": true,
-            "username": "dakota@nss.com",
+            "username": "dakota",
             "first_name": "dakota",
             "last_name": "lambert",
             "email": "dakota@nss.com",
@@ -17,4 +17,5 @@
             "user_permissions": []
         }
 	}
+	
 ]
