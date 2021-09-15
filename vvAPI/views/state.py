@@ -8,20 +8,20 @@ from rest_framework import serializers
 
 # from rest_framework import status
 from vvAPI.models import State, Venue
+from vvAPI.views.event import EventSerializer
 
 
 class VenueSerializer(serializers.ModelSerializer):
-
+    venue_events = EventSerializer(many=True)
     class Meta:
         model = Venue
-        fields = ('id', 'name',)
-        depth = 1
+        fields = ('id', 'name', 'venue_events', )
 
 class StateSerializer(serializers.ModelSerializer):
-    state_venue = VenueSerializer(many=True)
+    state_venues = VenueSerializer(many=True)
     class Meta:
         model = State
-        fields = ('id', 'name', 'abbreviation', 'state_venue')
+        fields = ('id', 'name', 'abbreviation', 'state_venues')
 
 
 # * DONE

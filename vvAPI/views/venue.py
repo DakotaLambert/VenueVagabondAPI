@@ -8,9 +8,26 @@ from rest_framework import serializers
 from rest_framework import status
 
 from django.contrib.auth.models import User #pylint:disable=imported-auth-user
-from vvAPI.models import Venue, VVUser, State
+
+from vvAPI.models import Venue, VVUser, State, EventType, Event
 
 #* DONE
+
+class EventTypeSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = EventType
+        fields = ('label', )
+
+
+class EventSerializer(serializers.ModelSerializer):
+
+    event_type = EventTypeSerializer()
+    class Meta:
+        model = Event
+        fields = ('id', 'name', 'event_type', 'date_of_event')
+        depth = 2
+
 
 class UserSerializer(serializers.ModelSerializer):
     """JSON serializer for gamer's related Django user"""
@@ -21,9 +38,10 @@ class UserSerializer(serializers.ModelSerializer):
 class VenueSerializer(serializers.ModelSerializer):
 
     user = UserSerializer()
+    venue_events = EventSerializer(many=True)
     class Meta:
         model = Venue
-        fields = ('id', 'name', 'state', 'user')
+        fields = ('id', 'name', 'state', 'user', 'venue_events')
         depth = 1
 
 

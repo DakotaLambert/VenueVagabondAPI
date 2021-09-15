@@ -1,4 +1,5 @@
 from django.db import models
+# from vvAPI.models.venue import Venue
 
 
 class Event(models.Model):
