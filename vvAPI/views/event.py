@@ -73,13 +73,13 @@ class EventView(ViewSet):
 
         event = Event()
         event.user = vvuser
-        event.name = request.data['name']
-        event.date_of_event = request.data['dateOfEvent']
-
         event_type = EventType.objects.get(pk=request.data['eventTypeId'])
         event.event_type = event_type
         venue = Venue.objects.get(pk=request.data['venueId'])
         event.venue = venue
+        event.name = request.data['name']
+        event.date_of_event = request.data['dateOfEvent']
+
 
 
 
