@@ -10,7 +10,8 @@ from rest_framework.response import Response
 
 from vvAPI.models import VVUser, State
 
-#* DONE
+# * DONE
+
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
@@ -60,14 +61,14 @@ def register_user(request):
         last_name=request.data['last_name']
     )
 
-
     vvuser = VVUser.objects.create(
         user=new_user,
         state=State.objects.get(pk=request.data['stateId'])
     )
 
     if "image_url" in request.data:
-        format, imgstr = request.data["image_url"].split(';base64,')#pylint: disable=redefined-builtin
+        format, imgstr = request.data["image_url"].split(
+            ';base64,')
         ext = format.split('/')[-1]
         data = ContentFile(base64.b64decode(imgstr),
                            name=f'{request.data["username"]}-{uuid.uuid4()}.{ext}')

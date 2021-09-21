@@ -14,3 +14,6 @@ class Venue(models.Model):
     def venue_events(self):
         event = Event.objects.filter(venue=self)
         return event
+
+    def __str__(self):
+        return self.name

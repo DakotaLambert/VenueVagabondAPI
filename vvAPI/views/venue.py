@@ -7,11 +7,12 @@ from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework import status
 
-from django.contrib.auth.models import User #pylint:disable=imported-auth-user
+from django.contrib.auth.models import User  # pylint:disable=imported-auth-user
 
 from vvAPI.models import Venue, VVUser, State, EventType, Event
 
-#* DONE
+# * DONE
+
 
 class EventTypeSerializer(serializers.ModelSerializer):
 
@@ -23,6 +24,7 @@ class EventTypeSerializer(serializers.ModelSerializer):
 class EventSerializer(serializers.ModelSerializer):
 
     event_type = EventTypeSerializer()
+
     class Meta:
         model = Event
         fields = ('id', 'name', 'event_type', 'date_of_event')
@@ -35,10 +37,12 @@ class UserSerializer(serializers.ModelSerializer):
         model = User
         fields = ('username', )
 
+
 class VenueSerializer(serializers.ModelSerializer):
 
     user = UserSerializer()
     venue_events = EventSerializer(many=True)
+
     class Meta:
         model = Venue
         fields = ('id', 'name', 'state', 'user', 'venue_events')
@@ -48,15 +52,15 @@ class VenueSerializer(serializers.ModelSerializer):
 class VenueView(ViewSet):
 
     def list(self, request):
-        venues = Venue.objects.all()
 
+        venues = Venue.objects.all()
         vvuser = VVUser.objects.get(user=request.auth.user)
 
-
         if vvuser is not None:
-            venues = venues.filter(user__id=vvuser.id)
+            venues = venues.filter(user=vvuser.user)
 
-        serializer = VenueSerializer(venues, many=True, context={'request': request})
+        serializer = VenueSerializer(
+            venues, many=True, context={'request': request})
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
@@ -66,7 +70,8 @@ class VenueView(ViewSet):
         if vvuser is not None:
             try:
                 venue = Venue.objects.get(pk=pk, user__id=vvuser.id)
-                serializer = VenueSerializer(venue, context={'request': request})
+                serializer = VenueSerializer(
+                    venue, context={'request': request})
                 return Response(serializer.data)
             except Venue.DoesNotExist:
                 return Response('This event type doesnt exist!')
@@ -84,6 +89,7 @@ class VenueView(ViewSet):
             return Response(serializer.data)
         except Exception:
             return Response('Didn\'t work man.')
+
     def destroy(self, request, pk=None):
         try:
             venue = Venue.objects.get(pk=pk)
