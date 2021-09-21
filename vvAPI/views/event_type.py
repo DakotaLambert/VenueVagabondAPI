@@ -27,7 +27,7 @@ class EventTypeView(ViewSet):
         vvuser = VVUser.objects.get(user=request.auth.user)
 
         if vvuser is not None:
-            eventtypes = eventtypes.filter(user__id=vvuser.id)
+            eventtypes = eventtypes.filter(user=vvuser.user)
 
         serializer = EventTypeSerializer(eventtypes, many=True, context={'request': request})
         return Response(serializer.data)
@@ -38,7 +38,7 @@ class EventTypeView(ViewSet):
 
         if vvuser is not None:
             try:
-                eventtype = EventType.objects.get(pk=pk, user__id=vvuser.id)
+                eventtype = EventType.objects.get(pk=pk, user=vvuser.user)
                 serializer = EventTypeSerializer(eventtype, context={'request': request})
                 return Response(serializer.data)
             except EventType.DoesNotExist:
