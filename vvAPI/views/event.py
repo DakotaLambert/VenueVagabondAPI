@@ -14,7 +14,7 @@ from vvAPI.models import Event, VVUser, EventType, Venue, UserEvent, State
 import base64
 import uuid
 
-
+from vvAPI.models.event_image import EventImage
 
 
 class EventTypeSerializer(serializers.ModelSerializer):
