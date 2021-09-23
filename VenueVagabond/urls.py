@@ -20,7 +20,8 @@ from django.conf.urls import include
 from django.urls import path
 from django.contrib import admin
 from rest_framework import routers
-
+from django.conf import settings
+from django.conf.urls.static import static
 from vvAPI.views import StateView, register_user, login_user, EventTypeView, EventView, VenueView, EventImageView
 
 router = routers.DefaultRouter(trailing_slash=False)
@@ -28,7 +29,7 @@ router.register(r'states', StateView, 'state')
 router.register(r'eventtypes', EventTypeView, 'eventtype')
 router.register(r'events', EventView, 'event')
 router.register(r'venues', VenueView, 'venue')
-router.register(r'eventimages', EventImageView, 'image')
+router.register(r'eventimages', EventImageView, 'eventimage')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,4 +37,5 @@ urlpatterns = [
     path('register', register_user),
     path('login', login_user),
     path('api-auth', include('rest_framework.urls', namespace='rest_framework')),
-]
+
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

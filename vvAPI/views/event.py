@@ -25,13 +25,13 @@ class EventTypeSerializer(serializers.ModelSerializer):
 
 
 class EventSerializer(serializers.ModelSerializer):
-    
+
     event_type = EventTypeSerializer()
     venue = VenueSerializer()
 
     class Meta:
         model = Event
-        fields = ('id', 'name', 'event_type', 'venue', 'date_of_event',  )
+        fields = ('id', 'name', 'event_type', 'venue', 'date_of_event', 'eventimage_set')
         depth = 2
 
 
@@ -41,7 +41,7 @@ class UserEventSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserEvent
-        fields = ('id', 'event')
+        fields = ('id', 'event', )
         depth = 1
 
 # * DONE
@@ -144,17 +144,18 @@ class EventView(ViewSet):
         venue = Venue.objects.get(pk=request.data['venueId'])
         event.venue = venue
 
-        if request.data['image_url'] != "":
-            format, imgstr = request.data["image_url"].split(
+        if request.data['image_path'] != "":
+            format, imgstr = request.data["image_path"].split(
                 ';base64,')  # pylint: disable=redefined-builtin
             ext = format.split('/')[-1]
             data = ContentFile(base64.b64decode(imgstr),
                                name=f'{request.data["name"]}-{uuid.uuid4()}.{ext}')
             event.image_url = data
+
             event_image = EventImage.objects.create(
                 user=vvuser,
                 event=event,
-                image_path=data
+                image=data
             )
 
             event_image.save()
