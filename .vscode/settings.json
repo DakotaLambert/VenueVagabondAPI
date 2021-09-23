@@ -6,7 +6,7 @@
     ],
     "sqltools.connections": [
         {
-            "previewLimit": 100,
+            "previewLimit": 50,
             "driver": "SQLite",
             "name": "VV",
             "database": "db.sqlite3"
