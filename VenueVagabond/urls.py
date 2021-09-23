@@ -21,14 +21,14 @@ from django.urls import path
 from django.contrib import admin
 from rest_framework import routers
 
-from vvAPI.views import StateView, register_user, login_user, EventTypeView, EventView, VenueView
+from vvAPI.views import StateView, register_user, login_user, EventTypeView, EventView, VenueView, EventImageView
 
 router = routers.DefaultRouter(trailing_slash=False)
 router.register(r'states', StateView, 'state')
 router.register(r'eventtypes', EventTypeView, 'eventtype')
 router.register(r'events', EventView, 'event')
 router.register(r'venues', VenueView, 'venue')
-# router.register(r'eventimages', EventImageView, 'image')
+router.register(r'eventimages', EventImageView, 'image')
 
 urlpatterns = [
     path('admin/', admin.site.urls),

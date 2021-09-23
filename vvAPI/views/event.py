@@ -9,11 +9,12 @@ from rest_framework import status
 from django.core.files.base import ContentFile
 
 from vvAPI.views.venue import VenueSerializer
+# from vvAPI.views.event_image import EventImageSerializer
 from vvAPI.models import Event, VVUser, EventType, Venue, UserEvent, State
 import base64
 import uuid
 
-from vvAPI.models.event_image import EventImage
+
 
 
 class EventTypeSerializer(serializers.ModelSerializer):
@@ -24,13 +25,13 @@ class EventTypeSerializer(serializers.ModelSerializer):
 
 
 class EventSerializer(serializers.ModelSerializer):
-
+    
     event_type = EventTypeSerializer()
     venue = VenueSerializer()
 
     class Meta:
         model = Event
-        fields = ('id', 'name', 'event_type', 'venue', 'date_of_event')
+        fields = ('id', 'name', 'event_type', 'venue', 'date_of_event',  )
         depth = 2
 
 

@@ -1,5 +1,6 @@
 from django.db import models
 # from vvAPI.models.venue import Venue
+from vvAPI.models.event_image import EventImage
 
 
 class Event(models.Model):
